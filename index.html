@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Reset API</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Base Reset API Configuration</h1>
+    <form id="configForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="konek">Konek:</label>
+      <input type="text" id="konek" name="konek" required />
+
+      <label for="salurann">Saluran:</label>
+      <input type="text" id="salurann" name="salurann" required />
+
+      <label for="gcbottt">Grup Bot:</label>
+      <input type="text" id="gcbottt" name="gcbottt" required />
+
+      <button type="submit">Update Configuration</button>
+    </form>
+
+    <div id="responseMessage"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
