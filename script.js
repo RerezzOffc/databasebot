@@ -1,46 +1,20 @@
-document.getElementById("configForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // Mengambil data dari form
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const konek = document.getElementById("konek").value;
-  const salurann = document.getElementById("salurann").value;
-  const gcbottt = document.getElementById("gcbottt").value;
-
-  // Membuat objek konfigurasi
-  const config = {
-    username,
-    password,
-    konek,
-    salurann,
-    gcbottt,
-  };
-
-  // Mengirim konfigurasi ke API (menggunakan fetch)
-  fetch("https://example.com/api/config", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(config),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        document.getElementById("responseMessage").textContent =
-          "Configuration updated successfully!";
-        document.getElementById("responseMessage").style.color = "green";
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      const menu = document.querySelector('.menu');
+      
+      // Toggle the active class for the nav
+      nav.classList.toggle('active');
+      
+      // Show the menu with smooth transition
+      if (nav.classList.contains('active')) {
+        let items = menu.querySelectorAll('a');
+        items.forEach((item, index) => {
+          item.style.animation = fadeIn 0.5s ease forwards ${index * 0.2}s; // Apply delay for each item
+        });
       } else {
-        document.getElementById("responseMessage").textContent =
-          "Failed to update configuration!";
-        document.getElementById("responseMessage").style.color = "red";
+        // Reset animation when menu is closed
+        menu.querySelectorAll('a').forEach(item => {
+          item.style.animation = '';
+        });
       }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      document.getElementById("responseMessage").textContent =
-        "Error: Unable to reach the server.";
-      document.getElementById("responseMessage").style.color = "red";
-    });
-});
+    }
